@@ -7,6 +7,9 @@ class AdminNotice < ActiveRecord::Base
   enum :category, %i[problem].freeze
 
   def message
-    I18n.t("dashboard.admin_notice.#{identifier}", **data.symbolize_keys)
+    I18n.t(
+      "dashboard.admin_notice.#{identifier}",
+      **data.symbolize_keys.reverse_merge(base_path: Discourse.base_path),
+    )
   end
 end
