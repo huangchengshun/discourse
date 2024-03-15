@@ -58,9 +58,18 @@ export default class SectionLink extends Component {
   }
 
   get target() {
-    return this.currentUser?.user_option?.external_links_in_new_tab
+    return this.currentUser?.user_option?.external_links_in_new_tab &&
+      this.isExternal
       ? "_blank"
       : "_self";
+  }
+
+  get isExternal() {
+    return (
+      this.args.href &&
+      new URL(this.args.href, window.location.href).origin !==
+        window.location.origin
+    );
   }
 
   get models() {
