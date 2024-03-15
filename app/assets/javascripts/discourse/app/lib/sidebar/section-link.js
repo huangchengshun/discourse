@@ -3,9 +3,8 @@ import { tracked } from "@glimmer/tracking";
 export default class SectionLink {
   @tracked linkDragCss;
 
-  constructor({ external, full_reload, icon, id, name, value }, section) {
+  constructor({ external, icon, id, name, value }, section) {
     this.external = external;
-    this.fullReload = full_reload;
     this.prefixValue = icon;
     this.id = id;
     this.name = name;
@@ -17,9 +16,5 @@ export default class SectionLink {
 
   get shouldDisplay() {
     return true;
-  }
-
-  get externalOrFullReload() {
-    return this.external || this.fullReload || this.withAnchor;
   }
 }
