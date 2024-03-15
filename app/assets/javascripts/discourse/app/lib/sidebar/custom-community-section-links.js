@@ -38,6 +38,14 @@ export function addSectionLink(args, secondary) {
         return args.title;
       }
 
+      get href() {
+        return args.href;
+      }
+
+      get route() {
+        return args.route;
+      }
+
       get prefixValue() {
         return args.icon || super.prefixValue;
       }
