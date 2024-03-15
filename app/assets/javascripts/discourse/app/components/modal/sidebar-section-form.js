@@ -206,7 +206,7 @@ class SectionLink {
   }
 
   get #invalidValue() {
-    return this.path && this.validLink();
+    return this.path && !this.#validLink();
   }
 
   #validLink() {
